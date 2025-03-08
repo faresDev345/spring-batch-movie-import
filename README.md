@@ -1,29 +1,29 @@
-Migration de Données MySQL vers PostgreSQL avec Spring Batch
-Introduction
+# Spring Batch File to Database Migration
 
-La migration de données entre bases de données est souvent nécessaire lors de la mise à l'échelle d'applications ou de la transition vers une solution plus performante. Ce projet gère la migration de MySQL vers PostgreSQL, en tenant compte des différences telles que les types BOOLEAN, les colonnes SERIAL et la gestion des ENUM. Il assure la migration des utilisateurs, de leurs publications et de leurs commentaires.
-Technologies Utilisées
+This project demonstrates how to use Spring Batch to migrate data from a file (CSV/TXT) to a MySQL database.
 
-    Spring Boot : Framework backend pour la construction d'applications autonomes.
-    Spring Batch : Traitement par lots pour les grands ensembles de données.
-    MySQL : Base de données source.
-    PostgreSQL : Base de données cible.
-    Lombok : Réduction du code boilerplate pour les entités et les services.
+## Features
+- Reads data from a file.
+- Processes the data using a custom processor.
+- Writes the data to a MySQL database.
 
-Fonctionnement
+## Technologies Used
+- Spring Boot
+- Spring Batch
+- Spring Data JPA
+- MySQL
 
-Le projet utilise Spring Batch pour diviser le processus de migration en plusieurs étapes :
-
-    Étape categories : Migration des données utilisateur de MySQL vers PostgreSQL avec la verification de l existence des données (doublons).
-    Étape films : Migration des films avec leurs liens avec le type de categorie avec une vérification des doublons
-
-L'ordre d'exécution respecte les contraintes d'intégrité des données, garantissant que les films sont migrés apres la migration des données des catégories.
-Instructions de Configuration
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/faresDev345/spring-batch-movie-import.git
+ 
+ 
 
     Cloner le dépôt :
 
-    git clone [https://github.com/spencer2k19/batch-data-migration.git](https://github.com/spencer2k19/batch-data-migration.git)
-    cd batch-data-migration
+    git clone https://github.com/faresDev345/spring-batch-movie-import.git
+    cd pring-batch-movie-import
 
     Configurer l'environnement : Créer un fichier .env avec les mêmes entrées que .env.example :
 
@@ -37,7 +37,7 @@ Instructions de Configuration
     POSTGRES_PASSWORD=motdepasse
     POSTGRES_DATABASE=basededonnees
 
-    Job_Name=copyFilmJob
+    Job_Name=copyMovieJob
 
     Compiler le projet :
 
